@@ -1,27 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Chrome Extension",
-  "description": "A chrome extension boilerplate built with Webpack 5, and Webpack Dev Server 4",
+  "name": "Markdown exporter",
+  "description": "Chrome extension for exporting markdown files to PDF",
   "options_page": "options.html",
-  "background": { "service_worker": "background.bundle.js" },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon-34.png"
-  },
-  "chrome_url_overrides": {
-    "newtab": "newtab.html"
-  },
   "icons": {
     "128": "icon-128.png"
   },
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "matches": [
+        "https://github.com/*",
+        "https://gitlab.com/*",
+        "https://bitbucket.org/*",
+        "<all_urls>"
+      ],
       "js": ["contentScript.bundle.js"],
       "css": ["content.styles.css"]
     }
   ],
-  "devtools_page": "devtools.html",
   "web_accessible_resources": [
     {
       "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],

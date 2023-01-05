@@ -43,13 +43,8 @@ const isDevelopment = NODE_ENV !== 'production';
 const options = {
   mode: NODE_ENV,
   entry: {
-    newtab: join(DIR_NAME, 'src', 'pages', 'Newtab', 'index.js'),
     options: join(DIR_NAME, 'src', 'pages', 'Options', 'index.ts'),
-    popup: join(DIR_NAME, 'src', 'pages', 'Popup', 'index.js'),
-    background: join(DIR_NAME, 'src', 'pages', 'Background', 'index.js'),
     contentScript: join(DIR_NAME, 'src', 'pages', 'Content', 'index.js'),
-    devtools: join(DIR_NAME, 'src', 'pages', 'Devtools', 'index.js'),
-    panel: join(DIR_NAME, 'src', 'pages', 'Panel', 'index.js'),
   },
   customConfig: {
     notHotReload: ['background', 'contentScript', 'devtools'],
@@ -167,33 +162,9 @@ const options = {
       ],
     }),
     new HtmlWebpackPlugin({
-      template: join(DIR_NAME, 'src', 'pages', 'Newtab', 'index.html'),
-      filename: 'newtab.html',
-      chunks: ['newtab'],
-      cache: false,
-    }),
-    new HtmlWebpackPlugin({
       template: join(DIR_NAME, 'src', 'pages', 'Options', 'index.html'),
       filename: 'options.html',
       chunks: ['options'],
-      cache: false,
-    }),
-    new HtmlWebpackPlugin({
-      template: join(DIR_NAME, 'src', 'pages', 'Popup', 'index.html'),
-      filename: 'popup.html',
-      chunks: ['popup'],
-      cache: false,
-    }),
-    new HtmlWebpackPlugin({
-      template: join(DIR_NAME, 'src', 'pages', 'Devtools', 'index.html'),
-      filename: 'devtools.html',
-      chunks: ['devtools'],
-      cache: false,
-    }),
-    new HtmlWebpackPlugin({
-      template: join(DIR_NAME, 'src', 'pages', 'Panel', 'index.html'),
-      filename: 'panel.html',
-      chunks: ['panel'],
       cache: false,
     }),
   ],

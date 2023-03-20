@@ -109,6 +109,7 @@ const options = {
     extensions: fileExtensions
       .map((extension) => `.${extension}`)
       .concat(['.js', '.ts', '.css']),
+    fallback: { buffer: false, fs: false },
   },
   plugins: [
     new CleanWebpackPlugin({ verbose: false }),
